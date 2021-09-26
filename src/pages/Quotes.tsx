@@ -34,6 +34,7 @@ export const Quotes:FC = () => {
       return;
     }
 
+    const { scrollTop } = document.documentElement;
     setLoading(true);
     QuotesService.getQuotes(selectedGuild.id, { channelId: selectedGuild.channels[selectedChannelIndex].id, pageNumber, pageSize: PAGE_SIZE }).then((res) => {
       if (res.length === 0 || res.length < PAGE_SIZE) {
@@ -45,6 +46,8 @@ export const Quotes:FC = () => {
         setQuotes((prev) => [...prev, ...res]);
       }
       setLoading(false);
+
+      new Promise<void>((resolve) => resolve()).then(() => { document.documentElement.scrollTop = scrollTop; });
     });
   }, [pageNumber, selectedChannelIndex, selectedGuild]);
 
