@@ -10,9 +10,9 @@ export const Quote: FC<QuoteProps> = (props) => {
   return (
     <div className="bg-white rounded-2xl p-4">
       <div className="flex gap-4 items-center">
-        <img src={quote.author.profileUrl} alt={`${quote.author.username}'s Profile`} className="rounded-full w-16" />
+        {quote.author && <img src={quote.author.profileUrl} alt={`${quote.author.username}'s Profile`} className="rounded-full w-16" />}
         <div>
-          <div className="text-2xl font-bold">{quote.author.username}</div>
+          <div className="text-2xl font-bold">{quote.author?.username || 'Someone'}</div>
           <div>{new Date(quote.createdAt).toLocaleString()}</div>
         </div>
       </div>

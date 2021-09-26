@@ -4,5 +4,5 @@ export type QuoteInfo = {
     id: string;
     createdAt: string;
     quote: string;
-    author: UserInfo;
+    author: UserInfo | null;
 }
