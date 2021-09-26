@@ -1,26 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react';
+import { Header } from './components/Header';
+import { Router } from './Router';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export const App: FC = () => (
+  <div className="w-full min-h-screen bg-off-white text-black font-light flex flex-col">
+    <Header />
+    <div className="flex-grow py-4 px-6 flex">
+      <Router />
     </div>
-  );
-}
-
-export default App;
+  </div>
+);
